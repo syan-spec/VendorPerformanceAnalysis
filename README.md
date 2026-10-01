@@ -216,4 +216,4 @@ Or step by step: `python scripts/ingestion_db.py`, `python scripts/get_vendor_su
 - [Visit My Portfolio](https://syan-spec.github.io/portfolio/)
 
 ## Author & Contact
-**Sayan Jana** - github.com/syan-spec.
+**Sayan Jana** - [github](https://github.com/syan-spec.)
