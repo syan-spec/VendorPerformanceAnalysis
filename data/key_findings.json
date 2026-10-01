@@ -1,0 +1,393 @@
+{
+  "period": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "purchase_orders_in_period": 5403,
+  "active_vendors": 126,
+  "total_purchases": 311605083.5799999,
+  "total_freight": 1588446.0300000003,
+  "units_purchased": 32549235,
+  "top10_share_pct": 65.3015060159501,
+  "top10_vendors": [
+    "DIAGEO NORTH AMERICA INC",
+    "MARTIGNETTI COMPANIES",
+    "JIM BEAM BRANDS COMPANY",
+    "PERNOD RICARD USA",
+    "BACARDI USA INC",
+    "CONSTELLATION BRANDS INC",
+    "BROWN-FORMAN CORP",
+    "ULTRA BEVERAGE COMPANY LLP",
+    "E & J GALLO WINERY",
+    "M S WALKER INC"
+  ],
+  "hhi": 604.2428599801545,
+  "bottom_half_vendors": 63,
+  "bottom_half_share_pct": 0.7036954483565234,
+  "est_gross_margin_pct": 30.282485331790276,
+  "est_revenue": 498180281.192526,
+  "est_gross_profit": 150861370.57799822,
+  "segment_counts": {
+    "Volume driver - renegotiate cost": 34,
+    "Margin builder - tighten stock levels": 34,
+    "Star - expand": 24,
+    "Underperformer - review or exit": 23,
+    "Insufficient data": 17
+  },
+  "segment_spend_pct": {
+    "Insufficient data": 0.01,
+    "Margin builder - tighten stock levels": 7.56,
+    "Star - expand": 34.29,
+    "Underperformer - review or exit": 2.38,
+    "Volume driver - renegotiate cost": 55.76
+  },
+  "underperformers": {
+    "vendors": 23,
+    "spend_pct": 2.375259483884445,
+    "ending_inventory_at_cost": 1862301.48,
+    "largest_by_inventory": [
+      "STOLI GROUP,(USA) LLC",
+      "EDRINGTON AMERICAS",
+      "WESTERN SPIRITS BEVERAGE CO"
+    ]
+  },
+  "top_scored_vendors": [
+    "E & J GALLO WINERY",
+    "MAJESTIC FINE WINES",
+    "TREASURY WINE ESTATES",
+    "CONSTELLATION BRANDS INC",
+    "WINE GROUP INC"
+  ],
+  "bottom_scored_vendors": [
+    "WESTERN SPIRITS BEVERAGE CO",
+    "ATLANTIC IMPORTING COMPANY",
+    "BLACK COVE BEVERAGES",
+    "SMOKY QUARTZ DISTILLERY LLC",
+    "TALL SHIP DISTILLERY LLC"
+  ],
+  "promotion_candidates": {
+    "skus": 377,
+    "ending_inventory_at_cost": 5640992.7700000005,
+    "avg_margin_pct": 41.28833976444472,
+    "rule": "margin >= P75, inventory grew over the year, ending stock value >= P75"
+  },
+  "inventory": {
+    "begin_value_at_cost": 46914103.41,
+    "end_value_at_cost": 55429569.0,
+    "growth_pct": 18.151184763311257
+  },
+  "margin_hypothesis_test": {
+    "n_high_spend": 29,
+    "n_low_spend": 29,
+    "mean_margin_high_spend": 30.93009638072352,
+    "mean_margin_low_spend": 30.05580153759111,
+    "difference_pp": 0.8742948431324109,
+    "t_statistic": 0.6070809769295346,
+    "p_value": 0.5464029602037597,
+    "ci95_low": -2.014660864847987,
+    "ci95_high": 3.763250551112809,
+    "significant_at_5pct": false
+  },
+  "bulk_order_median_cost_index": {
+    "Q1 smallest": 0.9974261696507917,
+    "Q2": 1.0000000000000002,
+    "Q3": 1.0000413838768414,
+    "Q4 largest": 0.9945237941775272
+  },
+  "bulk_order_mean_cost_index": {
+    "Q1 smallest": 1.0887233487304973,
+    "Q2": 1.051632003094163,
+    "Q3": 1.0402130858376284,
+    "Q4 largest": 1.0003924486322737
+  },
+  "freight_pct_small_orders_under_1k": 0.5729168576639168,
+  "freight_pct_large_orders_50k_plus": 0.5076113238574783,
+  "negative_margin_vendors": [
+    "ADAMBA IMPORTS INTL INC"
+  ],
+  "freight_model": {
+    "split": {
+      "cutoff": "2024-10-01",
+      "train_rows": 3979,
+      "train_rows_used_clean": 3893,
+      "test_rows": 1564,
+      "test_freight_anomalies": 0
+    },
+    "candidates": {
+      "Baseline (median rate x dollars)": {
+        "cv_MAE": 15.789549909110338,
+        "test_MAE": 17.14251659864337,
+        "test_RMSE": 53.68312564009421,
+        "test_R2": 0.9955008274048122,
+        "test_MAPE_pct": 5.327359857679433,
+        "test_MedianAPE_pct": 5.645508752525038,
+        "test_Within10pct": 0.9117647058823529
+      },
+      "Linear regression (dollars)": {
+        "cv_MAE": 15.838760201882163,
+        "test_MAE": 17.14679248720913,
+        "test_RMSE": 53.68285999549672,
+        "test_R2": 0.9955008719319488,
+        "test_MAPE_pct": 5.328560810091873,
+        "test_MedianAPE_pct": 5.6338828611175495,
+        "test_Within10pct": 0.9117647058823529
+      },
+      "Ridge (dollars, quantity)": {
+        "cv_MAE": 15.893816525210623,
+        "test_MAE": 17.51669847757002,
+        "test_RMSE": 53.61428463143192,
+        "test_R2": 0.9955123591099809,
+        "test_MAPE_pct": 5.439331709082319,
+        "test_MedianAPE_pct": 5.079014156226401,
+        "test_Within10pct": 0.8823529411764706
+      },
+      "Random forest (rate)": {
+        "cv_MAE": 15.793693272660581,
+        "test_MAE": 17.8358108935405,
+        "test_RMSE": 56.74277832403787,
+        "test_R2": 0.9949733544962525,
+        "test_MAPE_pct": 5.451191740207288,
+        "test_MedianAPE_pct": 5.269221805278698,
+        "test_Within10pct": 0.8964194373401535
+      },
+      "Gradient boosting (rate)": {
+        "cv_MAE": 16.414906279459803,
+        "test_MAE": 16.882714179397613,
+        "test_RMSE": 49.43246732794155,
+        "test_R2": 0.9961851133257451,
+        "test_MAPE_pct": 5.564414591357393,
+        "test_MedianAPE_pct": 5.293130075320968,
+        "test_Within10pct": 0.8663682864450127
+      }
+    },
+    "selected_model": "Linear regression (dollars)",
+    "selection_rule": "simplest ML model within 2% of the best ML 5-fold CV MAE (baseline excluded)",
+    "ml_lift_vs_baseline_test_MAE_pct": -0.02,
+    "ml_beats_baseline": false,
+    "linear_model_equation": "Freight = 0.00500 x Dollars (no intercept)",
+    "selected_test_metrics": {
+      "MAE": 17.14679248720913,
+      "RMSE": 53.68285999549672,
+      "R2": 0.9955008719319488,
+      "MAPE_pct": 5.328560810091873,
+      "MedianAPE_pct": 5.6338828611175495,
+      "Within10pct": 0.9117647058823529
+    },
+    "baseline_test_metrics": {
+      "MAE": 17.14251659864337,
+      "RMSE": 53.68312564009421,
+      "R2": 0.9955008274048122,
+      "MAPE_pct": 5.327359857679433,
+      "MedianAPE_pct": 5.645508752525038,
+      "Within10pct": 0.9117647058823529
+    },
+    "permutation_importance_MAE": {
+      "Dollars": 510.9476,
+      "Quantity": 0.0,
+      "UnitCost": 0.0,
+      "LeadTimeDays": 0.0,
+      "PaymentTermsDays": 0.0,
+      "Month": 0.0,
+      "DayOfWeek": 0.0,
+      "CatalogSKUs": 0.0,
+      "VendorRatePct": 0.0
+    },
+    "typical_freight_rate_pct": 0.5,
+    "freight_overcharge_summary": {
+      "invoices_flagged_freight_anomaly": 86,
+      "share_of_all_invoices_pct": 1.55,
+      "first_invoice_date": "2024-01-04",
+      "last_invoice_date": "2024-01-12",
+      "months_affected": [
+        "2024-01"
+      ],
+      "actual_freight_on_flagged_$": 40295.57,
+      "expected_freight_on_flagged_$": 7417.9,
+      "estimated_excess_freight_$": 32877.67,
+      "median_actual_to_expected_ratio": 6.09,
+      "share_of_invoices_in_affected_window_pct": 79.6
+    }
+  },
+  "approval_model": {
+    "label_definition": "ManualApprovalRequired = any of: High-value invoice (>= $250K); Freight above 1.5x the standard rate; Unit cost far from vendor norm; Lead time unusual for vendor; Payment terms unusual for vendor; Possible duplicate invoice",
+    "label_counts_all_invoices": {
+      "Flag_HighValue": 374,
+      "Flag_FreightAnomaly": 86,
+      "Flag_UnitCostOutlier": 112,
+      "Flag_LeadTimeOutlier": 8,
+      "Flag_PaymentTermsOutlier": 2,
+      "Flag_PossibleDuplicate": 2,
+      "ManualApprovalRequired": 580,
+      "total_invoices": 5543
+    },
+    "policy_consistency": {
+      "historical_approvals": 374,
+      "approver_names": [
+        "Frank Delahunt"
+      ],
+      "min_approved_dollars": 250689.87,
+      "max_unapproved_dollars": 249821.96,
+      "approved_below_threshold": 0,
+      "high_value_not_approved": 0,
+      "anomalous_invoices_below_threshold": 206,
+      "anomalous_below_threshold_never_approved": 206
+    },
+    "split": {
+      "train_rows": 4157,
+      "test_rows": 1386,
+      "train_positive_rate_pct": 10.49,
+      "test_positive_rate_pct": 10.39
+    },
+    "candidates_cv": {
+      "Logistic regression": {
+        "cv_PR_AUC": 0.6879881142044058,
+        "cv_ROC_AUC": 0.8808288686330252
+      },
+      "Random forest": {
+        "cv_PR_AUC": 0.9953484375243868,
+        "cv_ROC_AUC": 0.9985101913513433
+      },
+      "Gradient boosting": {
+        "cv_PR_AUC": 0.9891479403880484,
+        "cv_ROC_AUC": 0.9961913414811546
+      }
+    },
+    "selected_model": "Random forest",
+    "decision_threshold": 0.3702,
+    "threshold_rule": "maximise F2 on 5-fold out-of-fold training predictions",
+    "test_metrics": {
+      "threshold": 0.3702,
+      "rows": 1386,
+      "positives": 144,
+      "precision": 1.0,
+      "recall": 0.9791666666666666,
+      "F1": 0.9894736842105264,
+      "F2": 0.9832635983263597,
+      "accuracy": 0.9978354978354979,
+      "confusion": {
+        "TN": 1242,
+        "FP": 0,
+        "FN": 3,
+        "TP": 141
+      },
+      "ROC_AUC": 0.9971931472535337,
+      "PR_AUC": 0.9934007916405035
+    },
+    "test_recall_by_flag": {
+      "Flag_HighValue": {
+        "test_invoices": 94,
+        "caught": 94,
+        "recall": 1.0
+      },
+      "Flag_FreightAnomaly": {
+        "test_invoices": 21,
+        "caught": 21,
+        "recall": 1.0
+      },
+      "Flag_UnitCostOutlier": {
+        "test_invoices": 25,
+        "caught": 25,
+        "recall": 1.0
+      },
+      "Flag_LeadTimeOutlier": {
+        "test_invoices": 2,
+        "caught": 1,
+        "recall": 0.5
+      },
+      "Flag_PaymentTermsOutlier": {
+        "test_invoices": 1,
+        "caught": 0,
+        "recall": 0.0
+      },
+      "Flag_PossibleDuplicate": {
+        "test_invoices": 1,
+        "caught": 0,
+        "recall": 0.0
+      }
+    },
+    "test_metrics_invoices_below_250K": {
+      "threshold": 0.3702,
+      "rows": 1292,
+      "positives": 50,
+      "precision": 1.0,
+      "recall": 0.94,
+      "F1": 0.9690721649484536,
+      "F2": 0.951417004048583,
+      "accuracy": 0.9976780185758514,
+      "confusion": {
+        "TN": 1242,
+        "FP": 0,
+        "FN": 3,
+        "TP": 47
+      },
+      "ROC_AUC": 0.9919162640901771,
+      "PR_AUC": 0.9734701879355826
+    },
+    "benchmark_policy_rule_only_test": {
+      "precision": 1.0,
+      "recall": 0.6527777777777778
+    },
+    "isolation_forest_test": {
+      "ROC_AUC": 0.896923644659152,
+      "PR_AUC": 0.4853155897433238,
+      "precision_at_k": 0.4652777777777778,
+      "k": 144,
+      "ROC_AUC_anomaly_only_subset": 0.9025281803542673
+    },
+    "temporal_robustness": {
+      "threshold": 0.3702,
+      "rows": 1564,
+      "positives": 178,
+      "precision": 1.0,
+      "recall": 0.9719101123595506,
+      "F1": 0.9857549857549858,
+      "F2": 0.9774011299435028,
+      "accuracy": 0.9968030690537084,
+      "confusion": {
+        "TN": 1386,
+        "FP": 0,
+        "FN": 5,
+        "TP": 173
+      },
+      "ROC_AUC": 0.9962344147737405,
+      "PR_AUC": 0.991933678006848,
+      "note": "0 freight anomalies fall in the test period (all occur in January 2024)"
+    },
+    "permutation_importance_PR_AUC": {
+      "LogDollars": 0.3067,
+      "UnitCostRatioVendor": 0.0578,
+      "FreightVsExpected": 0.0409,
+      "LogFreight": 0.0082,
+      "LeadZ": 0.0079,
+      "TermsZ": 0.0039,
+      "CatalogSKUs": 0.001,
+      "LogQuantity": 0.0006,
+      "LogUnitCost": 0.0002,
+      "DollarsRelVendor": 0.0,
+      "HasVendorHistory": 0.0,
+      "LeadTimeDays": -0.0001,
+      "DayOfWeek": -0.0004,
+      "Month": -0.0005,
+      "PaymentTermsDays": -0.0008
+    },
+    "features": [
+      "LogDollars",
+      "LogQuantity",
+      "LogUnitCost",
+      "LogFreight",
+      "FreightVsExpected",
+      "LeadTimeDays",
+      "PaymentTermsDays",
+      "UnitCostRatioVendor",
+      "LeadZ",
+      "TermsZ",
+      "DollarsRelVendor",
+      "HasVendorHistory",
+      "Month",
+      "DayOfWeek",
+      "CatalogSKUs"
+    ],
+    "control_gap_invoices": 206,
+    "control_gap_dollars": 2581241.96
+  }
+}

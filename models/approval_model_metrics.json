@@ -1,0 +1,182 @@
+{
+  "label_definition": "ManualApprovalRequired = any of: High-value invoice (>= $250K); Freight above 1.5x the standard rate; Unit cost far from vendor norm; Lead time unusual for vendor; Payment terms unusual for vendor; Possible duplicate invoice",
+  "label_counts_all_invoices": {
+    "Flag_HighValue": 374,
+    "Flag_FreightAnomaly": 86,
+    "Flag_UnitCostOutlier": 112,
+    "Flag_LeadTimeOutlier": 8,
+    "Flag_PaymentTermsOutlier": 2,
+    "Flag_PossibleDuplicate": 2,
+    "ManualApprovalRequired": 580,
+    "total_invoices": 5543
+  },
+  "policy_consistency": {
+    "historical_approvals": 374,
+    "approver_names": [
+      "Frank Delahunt"
+    ],
+    "min_approved_dollars": 250689.87,
+    "max_unapproved_dollars": 249821.96,
+    "approved_below_threshold": 0,
+    "high_value_not_approved": 0,
+    "anomalous_invoices_below_threshold": 206,
+    "anomalous_below_threshold_never_approved": 206
+  },
+  "split": {
+    "train_rows": 4157,
+    "test_rows": 1386,
+    "train_positive_rate_pct": 10.49,
+    "test_positive_rate_pct": 10.39
+  },
+  "candidates_cv": {
+    "Logistic regression": {
+      "cv_PR_AUC": 0.6879881142044058,
+      "cv_ROC_AUC": 0.8808288686330252
+    },
+    "Random forest": {
+      "cv_PR_AUC": 0.9953484375243868,
+      "cv_ROC_AUC": 0.9985101913513433
+    },
+    "Gradient boosting": {
+      "cv_PR_AUC": 0.9891479403880484,
+      "cv_ROC_AUC": 0.9961913414811546
+    }
+  },
+  "selected_model": "Random forest",
+  "decision_threshold": 0.3702,
+  "threshold_rule": "maximise F2 on 5-fold out-of-fold training predictions",
+  "test_metrics": {
+    "threshold": 0.3702,
+    "rows": 1386,
+    "positives": 144,
+    "precision": 1.0,
+    "recall": 0.9791666666666666,
+    "F1": 0.9894736842105264,
+    "F2": 0.9832635983263597,
+    "accuracy": 0.9978354978354979,
+    "confusion": {
+      "TN": 1242,
+      "FP": 0,
+      "FN": 3,
+      "TP": 141
+    },
+    "ROC_AUC": 0.9971931472535337,
+    "PR_AUC": 0.9934007916405035
+  },
+  "test_recall_by_flag": {
+    "Flag_HighValue": {
+      "test_invoices": 94,
+      "caught": 94,
+      "recall": 1.0
+    },
+    "Flag_FreightAnomaly": {
+      "test_invoices": 21,
+      "caught": 21,
+      "recall": 1.0
+    },
+    "Flag_UnitCostOutlier": {
+      "test_invoices": 25,
+      "caught": 25,
+      "recall": 1.0
+    },
+    "Flag_LeadTimeOutlier": {
+      "test_invoices": 2,
+      "caught": 1,
+      "recall": 0.5
+    },
+    "Flag_PaymentTermsOutlier": {
+      "test_invoices": 1,
+      "caught": 0,
+      "recall": 0.0
+    },
+    "Flag_PossibleDuplicate": {
+      "test_invoices": 1,
+      "caught": 0,
+      "recall": 0.0
+    }
+  },
+  "test_metrics_invoices_below_250K": {
+    "threshold": 0.3702,
+    "rows": 1292,
+    "positives": 50,
+    "precision": 1.0,
+    "recall": 0.94,
+    "F1": 0.9690721649484536,
+    "F2": 0.951417004048583,
+    "accuracy": 0.9976780185758514,
+    "confusion": {
+      "TN": 1242,
+      "FP": 0,
+      "FN": 3,
+      "TP": 47
+    },
+    "ROC_AUC": 0.9919162640901771,
+    "PR_AUC": 0.9734701879355826
+  },
+  "benchmark_policy_rule_only_test": {
+    "precision": 1.0,
+    "recall": 0.6527777777777778
+  },
+  "isolation_forest_test": {
+    "ROC_AUC": 0.896923644659152,
+    "PR_AUC": 0.4853155897433238,
+    "precision_at_k": 0.4652777777777778,
+    "k": 144,
+    "ROC_AUC_anomaly_only_subset": 0.9025281803542673
+  },
+  "temporal_robustness": {
+    "threshold": 0.3702,
+    "rows": 1564,
+    "positives": 178,
+    "precision": 1.0,
+    "recall": 0.9719101123595506,
+    "F1": 0.9857549857549858,
+    "F2": 0.9774011299435028,
+    "accuracy": 0.9968030690537084,
+    "confusion": {
+      "TN": 1386,
+      "FP": 0,
+      "FN": 5,
+      "TP": 173
+    },
+    "ROC_AUC": 0.9962344147737405,
+    "PR_AUC": 0.991933678006848,
+    "note": "0 freight anomalies fall in the test period (all occur in January 2024)"
+  },
+  "permutation_importance_PR_AUC": {
+    "LogDollars": 0.3067,
+    "UnitCostRatioVendor": 0.0578,
+    "FreightVsExpected": 0.0409,
+    "LogFreight": 0.0082,
+    "LeadZ": 0.0079,
+    "TermsZ": 0.0039,
+    "CatalogSKUs": 0.001,
+    "LogQuantity": 0.0006,
+    "LogUnitCost": 0.0002,
+    "DollarsRelVendor": 0.0,
+    "HasVendorHistory": 0.0,
+    "LeadTimeDays": -0.0001,
+    "DayOfWeek": -0.0004,
+    "Month": -0.0005,
+    "PaymentTermsDays": -0.0008
+  },
+  "features": [
+    "LogDollars",
+    "LogQuantity",
+    "LogUnitCost",
+    "LogFreight",
+    "FreightVsExpected",
+    "LeadTimeDays",
+    "PaymentTermsDays",
+    "UnitCostRatioVendor",
+    "LeadZ",
+    "TermsZ",
+    "DollarsRelVendor",
+    "HasVendorHistory",
+    "Month",
+    "DayOfWeek",
+    "CatalogSKUs"
+  ],
+  "control_gap_invoices": 206,
+  "control_gap_dollars": 2581241.96
+}

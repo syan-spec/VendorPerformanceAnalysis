@@ -1,0 +1,103 @@
+{
+  "split": {
+    "cutoff": "2024-10-01",
+    "train_rows": 3979,
+    "train_rows_used_clean": 3893,
+    "test_rows": 1564,
+    "test_freight_anomalies": 0
+  },
+  "candidates": {
+    "Baseline (median rate x dollars)": {
+      "cv_MAE": 15.789549909110338,
+      "test_MAE": 17.14251659864337,
+      "test_RMSE": 53.68312564009421,
+      "test_R2": 0.9955008274048122,
+      "test_MAPE_pct": 5.327359857679433,
+      "test_MedianAPE_pct": 5.645508752525038,
+      "test_Within10pct": 0.9117647058823529
+    },
+    "Linear regression (dollars)": {
+      "cv_MAE": 15.838760201882163,
+      "test_MAE": 17.14679248720913,
+      "test_RMSE": 53.68285999549672,
+      "test_R2": 0.9955008719319488,
+      "test_MAPE_pct": 5.328560810091873,
+      "test_MedianAPE_pct": 5.6338828611175495,
+      "test_Within10pct": 0.9117647058823529
+    },
+    "Ridge (dollars, quantity)": {
+      "cv_MAE": 15.893816525210623,
+      "test_MAE": 17.51669847757002,
+      "test_RMSE": 53.61428463143192,
+      "test_R2": 0.9955123591099809,
+      "test_MAPE_pct": 5.439331709082319,
+      "test_MedianAPE_pct": 5.079014156226401,
+      "test_Within10pct": 0.8823529411764706
+    },
+    "Random forest (rate)": {
+      "cv_MAE": 15.793693272660581,
+      "test_MAE": 17.8358108935405,
+      "test_RMSE": 56.74277832403787,
+      "test_R2": 0.9949733544962525,
+      "test_MAPE_pct": 5.451191740207288,
+      "test_MedianAPE_pct": 5.269221805278698,
+      "test_Within10pct": 0.8964194373401535
+    },
+    "Gradient boosting (rate)": {
+      "cv_MAE": 16.414906279459803,
+      "test_MAE": 16.882714179397613,
+      "test_RMSE": 49.43246732794155,
+      "test_R2": 0.9961851133257451,
+      "test_MAPE_pct": 5.564414591357393,
+      "test_MedianAPE_pct": 5.293130075320968,
+      "test_Within10pct": 0.8663682864450127
+    }
+  },
+  "selected_model": "Linear regression (dollars)",
+  "selection_rule": "simplest ML model within 2% of the best ML 5-fold CV MAE (baseline excluded)",
+  "ml_lift_vs_baseline_test_MAE_pct": -0.02,
+  "ml_beats_baseline": false,
+  "linear_model_equation": "Freight = 0.00500 x Dollars (no intercept)",
+  "selected_test_metrics": {
+    "MAE": 17.14679248720913,
+    "RMSE": 53.68285999549672,
+    "R2": 0.9955008719319488,
+    "MAPE_pct": 5.328560810091873,
+    "MedianAPE_pct": 5.6338828611175495,
+    "Within10pct": 0.9117647058823529
+  },
+  "baseline_test_metrics": {
+    "MAE": 17.14251659864337,
+    "RMSE": 53.68312564009421,
+    "R2": 0.9955008274048122,
+    "MAPE_pct": 5.327359857679433,
+    "MedianAPE_pct": 5.645508752525038,
+    "Within10pct": 0.9117647058823529
+  },
+  "permutation_importance_MAE": {
+    "Dollars": 510.9476,
+    "Quantity": 0.0,
+    "UnitCost": 0.0,
+    "LeadTimeDays": 0.0,
+    "PaymentTermsDays": 0.0,
+    "Month": 0.0,
+    "DayOfWeek": 0.0,
+    "CatalogSKUs": 0.0,
+    "VendorRatePct": 0.0
+  },
+  "typical_freight_rate_pct": 0.5,
+  "freight_overcharge_summary": {
+    "invoices_flagged_freight_anomaly": 86,
+    "share_of_all_invoices_pct": 1.55,
+    "first_invoice_date": "2024-01-04",
+    "last_invoice_date": "2024-01-12",
+    "months_affected": [
+      "2024-01"
+    ],
+    "actual_freight_on_flagged_$": 40295.57,
+    "expected_freight_on_flagged_$": 7417.9,
+    "estimated_excess_freight_$": 32877.67,
+    "median_actual_to_expected_ratio": 6.09,
+    "share_of_invoices_in_affected_window_pct": 79.6
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "period_start": "2024-01-01",
+  "period_end": "2024-12-31",
+  "purchase_orders_total": 5543,
+  "purchase_orders_in_period": 5403,
+  "purchase_orders_after_period_end": 140,
+  "dollars_after_period_end_excluded": 10295681.95,
+  "vendors_with_invoices": 126,
+  "vendors_in_catalog": 131,
+  "vendors_invoiced_but_not_in_catalog": [
+    201359
+  ],
+  "vendors_in_catalog_without_invoices": [
+    1002,
+    2973,
+    3670,
+    5895,
+    9710,
+    90034
+  ],
+  "vendors_renamed_during_period": {
+    "1587": [
+      "VINEYARD BRANDS INC",
+      "VINEYARD BRANDS LLC"
+    ],
+    "2000": [
+      "SOUTHERN WINE & SPIRITS NE",
+      "SOUTHERN GLAZERS W&S OF NE"
+    ]
+  },
+  "catalog_rows_with_invalid_pricing": 2,
+  "catalog_rows_missing_description": 1,
+  "end_inventory_rows_missing_city": 1284,
+  "vendors_reliable_for_sales_estimate": 115,
+  "vendors_score_eligible": 115,
+  "reconciliation": "purchase dollars/units and begin/end inventory units tie to the source tables",
+  "assumptions": [
+    "Units sold are estimated: begin inventory + purchased units - end inventory (per vendor).",
+    "Invoice date is used as the receiving date.",
+    "Retail price = on-hand weighted store price; cost = catalog PurchasePrice.",
+    "Estimated revenue/profit use inventory-weighted brand mix as a proxy for the sales mix.",
+    "Sales KPIs require >= 3 POs and >= 100 units available."
+  ]
+}
