@@ -212,9 +212,8 @@ Or step by step: `python scripts/ingestion_db.py`, `python scripts/get_vendor_su
 - Freight overcharges occur in one nine-day window, so they cannot be validated across time.
 - Promotion candidates use growing stock as a proxy for slow sales.
 
-## Live website https://syan-spec-vendorperformanceanalysis-dashboardapp-hffq08.streamlit.app/
+## Live website [Link](https://syan-spec-vendorperformanceanalysis-dashboardapp-hffq08.streamlit.app/)
 - [Visit My Portfolio](https://syan-spec.github.io/portfolio/)
 
 ## Author & Contact
-<<<<<<< HEAD
 **Sayan Jana** - github.com/syan-spec.
