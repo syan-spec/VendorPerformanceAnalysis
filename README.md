@@ -213,4 +213,4 @@ Or step by step: `python scripts/ingestion_db.py`, `python scripts/get_vendor_su
 - Promotion candidates use growing stock as a proxy for slow sales.
 
 ## Author & Contact
-**Sayan** - add your GitHub, LinkedIn and email here.
+**Sayan Jana** - github.com/syan-spec.
